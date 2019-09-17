@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carrousel</title>
+</head>
+<style>
+ body {
+        margin: 0px;
+  /*      background-color:   #06D6A0;    ;    #06D6A0;   VEEDE AREN*/
+       font-family: 'Muli', sans-serif; 
+    /*  font-family: 'Chilanka', cursive;*/
+
+    background: linear-gradient( #06D6A0, #8725D4);
+    }
+
+    /* INICIO DE HEADER*/
+    .header{
+       
+        width : 100% ;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header__img {
+        width:  200px;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+    .header__menu {
+        margin-right: 50px;
+
+    }
+    .header__menu ul {
+       display :  none ; 
+       list-style:none ; 
+       padding: 0px;
+       position: absolute;
+       width: 100px;
+       text-align: right;
+       margin:  0px 0px 0px -14px;
+    }
+    /*PARA QUE SE MUESTRE LA UL (PERFIL Y SESSION) */ 
+    .header__menu:hover ul , ul:hover{
+       display: block;
+    }
+    
+    /*ESTILIZAR LOS UL OSEA EL PERFIL Y CERRAR SESION*/
+    .header__menu li {
+        margin: 10px 0px; /* el primero 10px va para top y bootom y el 0px para left  y right*/
+/* eso fue para q no se vieran juntos*/
+    }
+
+    .header__menu  li a {
+        color: white;
+        text-decoration: none;
+
+    }
+    /* PARA COOCARLE EL SUBRAYADO CUANDO SE ACERCA */ 
+    .header__menu  li a:hover {
+        text-decoration: underline;
+    }
+
+    
+    .header__menu--profile { 
+        margin-right: 8px;
+        display: flex;
+        width: 40px;
+        align-items: center;
+
+    }
+
+    .header__menu--profile img { 
+        margin-right: 8px;
+        width: 40px;
+    }
+
+   .header__menu--profile p { 
+         margin: 0px;
+         color: white;
+    }
+
+        /*FIN DE HEADER*/
+
+
+        /*SECTION BUSCAR*/
+
+        .main {
+        height: 40px;
+
+    }
+    .main__title  {
+        color: white;
+        font-size: 25px;
+
+
+    }
+    .input{
+        background-color: rgba(255,255,255,0.1);/* R=RED , G:GREEN , B:BLUE ,A :OPACITY*/
+         border: 2px solid white;
+        border-radius: 25px;
+        color: white ;
+        font-family: 'Muli', sans-serif; 
+        font-size: 16px;
+        height: 50px;
+        padding: 0px 20px; 
+        width: 70%;
+        outline: none;
+
+    }
+    /*fin de main BUSCAR */ 
+
+    /* CAROSEL INICIO*/
+
+    .carousel{
+        width :  100%;
+        overflow: scroll;
+        padding:30px;
+        position: relative;
+    }
+    .carousel__container{
+        white-space: nowrap;
+        margin: 70px 0px; /* para arriba los 70 px y abajo 0px*/ 
+        padding-bottom: 10px;       
+
+    }
+
+    .carousel-item { 
+        background : linear-gradient(to top ,rgba(0,0,0,0.9) 0% ,  rgba(0,0,0,0) 100%);
+        width: 200px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+        display: inline-block;/*UNO A LADO DEL OTRO*/
+        cursor:pointer;
+        transition : 450ms all;
+        transform-origin: center left;
+        position: relative;
+
+    }
+    .carousel-item:hover  ~ .carousel-item  {
+        transform: translate3d(100px,0 , 0);
+        
+    }
+
+    /* haremos sobre la opacidad en lo q despues de selccionar lo de atras se opaca */
+    .carousel__container:hover  .carousel-item {
+        opacity: 0.3;
+    }
+    /*Haremos el incremntop de tamaño cuando lo selecionamos*/
+    .carousel__container:hover  .carousel-item:hover {
+        transform: scale(1.5);
+        opacity:1;
+    }
+
+    .carousel-item__img{
+        width: 200px;
+        height: 250px;
+        object-fit: cover;/*para q recupere su tamaño inicial*/
+
+    }
+    .carousel-item__details {
+        background : linear-gradient(to top ,rgba(0,0,0,0.9) 0% ,  rgba(0,0,0,0) 100%);
+        font-size: 10px;
+        opacity: 0;
+        transition:  450ms opacity ;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+    }
+        /*  FIN CAROSEL */
+
+/* SECTION DE BUSCAR*/
+    .main {
+        height: 80px;
+
+    }
+    .main__title  {
+        color: white;
+        font-size: 25px;
+
+
+    }
+    .input{
+        background-color: rgba(255,255,255,0.1);/* R=RED , G:GREEN , B:BLUE ,A :OPACITY*/
+         border: 2px solid white;
+        border-radius: 25px;
+        color: white ;
+        font-family: 'Muli', sans-serif; 
+        font-size: 16px;
+        height: 50px;
+        padding: 0px 20px; 
+        width: 70%;
+        outline: none;
+
+    }
+ 
+       ::placeholder { 
+        color: white;
+    }
+/*FIN DE SECTION BUSCAR*/
+
+
+</style>
+
+<body>
+
+        <header class="header">
+                <img    class="header__img"   src=" imgg/logpla.png" alt="logoplatzi">
+                <div class="header__menu">
+                    <div class="header__menu--profile">
+                        <img src="imgg/ico-usuario.png" alt="User">
+                        <p>Perfil</p>
+                    </div>
+                    <ul>
+                        <li><a href="/">Cuenta</a></li>
+                        <li><a href="/">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+        </header>
+
+    <section class="main">
+            <h2 class="main__title">¿Qué quieres ver hoy?</h2>
+            <input class="input" type="text" placeholder="Buscar..">
+     </section>
+
+    <section class="carousel">
+        <div class="carousel__container">
+         <div class="carousel-item">  
+                <img  class="carousel-item__img"  src="imgg/4k-wallpaper-blur-buildings-1236701.jpg" alt="">          
+             <div class="carousel-item__details">
+                    <div>
+                        <img src="imgg/icons8-play-64.png" alt="play">
+                        <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                    </div>
+                        <p class="carousel-item__details">Titulo descriptivo</p>
+                        <p class="carousel-item__details"> 2019 16+ 114 min </p>
+
+            </div>   
+                   
+        </div> 
+        
+         <div class="carousel-item">
+
+                <img  class="carousel-item__img"  src="imgg/Display en CSS-634bc14a-bdf5-4337-a67d-49fc74f92a60.jpg" alt="">
+         
+                <div class="carousel-item__details">
+                       <div>
+                       <img src="imgg/icons8-play-64.png" alt="play">
+                       <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                   </div>
+                       <p class="carousel-item__details">Titulo descriptivo</p>
+                       <p class="carousel-item__details"> 2019 </p>
+   
+               </div>   
+
+            </div> 
+
+            <div class="carousel-item">
+
+                    <img  class="carousel-item__img"  src="imgg/adult-beach-bright-888894.jpg alt="">
+             
+                    <div class="carousel-item__details">
+                           <div>
+                           <img src="imgg/icons8-play-64.png" alt="play">
+                           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                       </div>
+                           <p class="carousel-item__details">Titulo descriptivo</p>
+                           <p class="carousel-item__details"> 2019 </p>
+       
+                   </div>   
+    
+                </div>
+
+                <div class="carousel-item">
+
+                        <img  class="carousel-item__img"  src="imgg/albino-body-conceptual-2860382.jpg" alt="">
+                 
+                        <div class="carousel-item__details">
+                               <div>
+                               <img src="imgg/icons8-play-64.png" alt="play">
+                               <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                           </div>
+                               <p class="carousel-item__details">Titulo descriptivo</p>
+                               <p class="carousel-item__details"> 2019 </p>
+           
+                       </div>   
+        
+              </div>  
+              <div class="carousel-item">
+
+                <img  class="carousel-item__img"  src="imgg/adult-beach-bright-888894.jpg" alt="">
+         
+                <div class="carousel-item__details">
+                       <div>
+                       <img src="imgg/icons8-play-64.png" alt="play">
+                       <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                   </div>
+                       <p class="carousel-item__details">Titulo descriptivo</p>
+                       <p class="carousel-item__details"> 2019 </p>
+   
+               </div>   
+
+      </div>  
+      <div class="carousel-item">
+
+        <img  class="carousel-item__img"  src="imgg/html5.png" alt="">
+ 
+        <div class="carousel-item__details">
+               <div>
+               <img src="imgg/icons8-play-64.png" alt="play">
+               <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+           </div>
+               <p class="carousel-item__details">Titulo descriptivo</p>
+               <p class="carousel-item__details"> 2019 </p>
+
+       </div>   
+
+</div>  
+<div class="carousel-item">
+
+    <img  class="carousel-item__img"  src="imgg/icons8-twitter-128.png" alt="">
+
+    <div class="carousel-item__details">
+           <div>
+           <img src="imgg/icons8-play-64.png" alt="play">
+           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+       </div>
+           <p class="carousel-item__details">Titulo descriptivo</p>
+           <p class="carousel-item__details"> 2019 </p>
+
+   </div>   
+
+</div>  
+<div class="carousel-item">
+
+    <img  class="carousel-item__img"  src="imgFita/received_2455887447978273.jpeg" alt="">
+
+    <div class="carousel-item__details">
+           <div>
+           <img src="imgg/icons8-play-64.png" alt="play">
+           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+       </div>
+           <p class="carousel-item__details">Titulo descriptivo</p>
+           <p class="carousel-item__details"> 2019 </p>
+
+   </div>   
+
+</div>  
+
+        </div>
+
+    </section>
+
+
+    <section class="carousel">
+            <div class="carousel__container">
+             <div class="carousel-item">  
+                    <img  class="carousel-item__img"  src="imgFita/received_737438416404219.jpeg" alt="">          
+                 <div class="carousel-item__details">
+                        <div>
+                            <img src="imgg/icons8-play-64.png" alt="play">
+                            <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                        </div>
+                            <p class="carousel-item__details">Titulo descriptivo</p>
+                            <p class="carousel-item__details"> 2019 16+ 114 min </p>
+    
+                </div>   
+                       
+            </div> 
+            
+             <div class="carousel-item">
+    
+                    <img  class="carousel-item__img"  src="imgFita/received_737439316404129.jpeg" alt="">
+             
+                    <div class="carousel-item__details">
+                           <div>
+                           <img src="imgg/icons8-play-64.png" alt="play">
+                           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                       </div>
+                           <p class="carousel-item__details">Titulo descriptivo</p>
+                           <p class="carousel-item__details"> 2019 </p>
+       
+                   </div>   
+    
+                </div> 
+                    
+             <div class="carousel-item">
+    
+                    <img  class="carousel-item__img"  src="imgg/4k-wallpaper-blur-buildings-1236701.jpg" alt="">
+             
+                    <div class="carousel-item__details">
+                           <div>
+                           <img src="imgg/icons8-play-64.png" alt="play">
+                           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                       </div>
+                           <p class="carousel-item__details">Titulo descriptivo</p>
+                           <p class="carousel-item__details"> 2019 </p>
+       
+                   </div>   
+    
+                </div> 
+                    
+             <div class="carousel-item">
+    
+                    <img  class="carousel-item__img"  src="imgg/adult-beach-bright-888894.jpg" alt="">
+             
+                    <div class="carousel-item__details">
+                           <div>
+                           <img src="imgg/icons8-play-64.png" alt="play">
+                           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                       </div>
+                           <p class="carousel-item__details">Titulo descriptivo</p>
+                           <p class="carousel-item__details"> 2019 </p>
+       
+                   </div>   
+    
+                </div> 
+                    
+             <div class="carousel-item">
+    
+                    <img  class="carousel-item__img"  src="imgg/albino-body-conceptual-2860382.jpg" alt="">
+             
+                    <div class="carousel-item__details">
+                           <div>
+                           <img src="imgg/icons8-play-64.png" alt="play">
+                           <img src="imgg/icons8-agregar-enlace-96.png" alt="enlace">
+                       </div>
+                           <p class="carousel-item__details">Titulo descriptivo</p>
+                           <p class="carousel-item__details"> 2019 </p>
+       
+                   </div>   
+    
+                </div> 
+    
+            </div>
+    
+        </section>
+    
+</body>
+</html>

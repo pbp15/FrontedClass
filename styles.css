@@ -1,0 +1,268 @@
+
+        a {
+            color: inherit;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0px;
+           background: #06D6A0;      /* #06D6A0;   VEEDE AREN*/
+            font-family: 'Chilanka', cursive;
+        /*  font-family: 'Chilanka', cursive;*/
+        }
+        .header{
+        
+            width : 100% ;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header__img {
+            width:  200px;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        .header__menu {
+            margin-right: 50px;
+    
+        }
+        .header__menu ul {
+           display :  none ; 
+           list-style:none ; 
+           padding: 0px;
+           position: absolute;
+           width: 100px;
+           text-align: right;
+           margin:  0px 0px 0px -14px;
+        }
+        /*PARA QUE SE MUESTRE LA UL (PERFIL Y SESSION) */ 
+        .header__menu:hover ul , ul:hover{
+           display: block;
+    
+        }
+        /*ESTILIZAR LOS UL OSEA EL PERFIL Y CERRAR SESION*/
+        .header__menu li {
+            margin: 10px 0px; /* el primero 10px va para top y bootom y el 0px para left  y right*/
+    /* eso fue para q no se vieran juntos*/
+        }
+    
+        .header__menu  li a {
+            color: white;
+            text-decoration: none;
+    
+        }
+        /* PARA COOCARLE EL SUBRAYADO CUANDO SE ACERCA */ 
+        .header__menu  li a:hover {
+            text-decoration: underline;
+        }
+    
+        
+        .header__menu--profile { 
+            margin-right: 8px;
+            display: flex;
+            width: 40px;
+            align-items: center;
+    
+        }
+    
+        .header__menu--profile img { 
+            margin-right: 8px;
+            width: 40px;
+        }
+    
+       .header__menu--profile p { 
+             margin: 0px;
+             color: white;
+        }
+    
+    
+    /* LO TENEMOS  QUE ALINEAR CON PURO CSS SIN FLEXBOX*/
+        .main {
+            height: 300px;
+    
+        }
+        .main__title  {
+            color: white;
+            font-size: 25px;
+    
+    
+        }
+        .input{
+            background-color: rgba(255,255,255,0.1);/* R=RED , G:GREEN , B:BLUE ,A :OPACITY*/
+             border: 2px solid white;
+            border-radius: 25px;
+            color: white ;
+            font-family: 'Muli', sans-serif; 
+            font-size: 16px;
+            height: 50px;
+            padding: 0px 20px; 
+            width: 70%;
+            outline: none;
+    
+        }
+     
+     /* fin de buscar*/
+     
+
+        .login {
+            background: linear-gradient( #06D6A0, #8725D4);
+            display : flex;
+            align-items: center ; /*La ALINEACION VERTICAL*/
+            justify-content: center; /*la ALINEACION DE FORMA HORIZONTAL   */
+            flex-direction: column; /* todos los elementos e  colocan de arriba hacia abajo*/
+            padding: 0px 30px ; 
+            min-height: calc(100vh - 200px);
+        }
+        /*ES UN POCO MAS BLANCO*/
+        .login__container {
+            background-color: rgba(255,255,255,0.1);
+            border: 2px solid white ;
+            border-radius: 40px;
+            color: white;
+            padding: 60px 68px 40px;
+            min-height: 700px;
+            width: 300px;      
+            display: flex; /*ALINIE LOS ELEMENTOS*/
+            justify-content: space-around; /*separacion entre los elementos*/
+            flex-direction: column; /*se colocaran en columnas*/
+
+        }
+
+        .login__container--form {
+            display : flex ;
+            flex-direction: column;
+        }
+
+        .login__container--form label { 
+            font-size: 14px;
+
+        }
+
+   
+        .login__container--remember-me {
+             color: white ;
+             display: flex;
+             justify-content: space-between;
+             margin-top: 10px;
+        }
+
+        .login__container--remember-me a {
+            text-decoration: none;
+            font-size: 14px;
+            color: white ;
+        }
+
+        .login__container--remember-me a:hover {
+            text-decoration: underline;
+        }
+
+        .login__container--social-media > div {
+           display: flex;
+           align-items: center;        
+           font-size: 14px;
+
+
+         }
+
+         .login__container--social-media > div > img {
+              width: 30px;
+              margin-right: 10px;
+              
+ 
+          }
+
+          .login__container--register{
+            font-size: 14px;
+           
+        } 
+
+        .login__container--register a {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+           
+        }     
+   
+        .login__container--register a:hover {
+            text-decoration: underline;
+        }
+        .login__input{
+          
+            background-color:transparent;
+            outline: none;
+            color: white ;
+            font-size: 16px;
+                border-left: 0px;
+                border-top: 0px;
+                border-right: 0px;
+                border-bottom: 2px solid white;
+            padding-left: 25px;
+            margin: 5px 0px 15px 0px; 
+            height: 45px;
+            width: 100%;
+            font-family: 'Chilanka', cursive;
+        }
+
+        ::placeholder { 
+            color: white;
+        }
+
+
+        .login__button{
+            background-color: rgba(255,255,255,0.1);
+            border: 2px solid white;
+            border-radius: 25px;
+            color: white ;
+            font-family: 'Chilanka', cursive;
+            font-size: 18px;
+            height: 50px;
+            width: 100%;
+            margin: 10px 0px;
+            outline: none;
+            cursor: pointer;
+           /* letter-spacing: 1px; PARA SEPARAR LETRAS */
+        }
+    
+
+
+        .login__container--social-media{
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .login__container--social-media a {
+            color: white ;
+            text-decoration: none;
+        }
+        
+        .login__container--social-media a:hover {
+        
+            text-decoration:underline;
+        }
+
+        .footer { 
+            background-color:  #8725D4;
+            font-family: 'Chilanka', cursive;
+            text-align: center;
+            display: flex;
+            height: 60px;
+            width: 100%;
+            justify-content: center;
+            padding-top: 30px;
+
+        }
+        .footer a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            padding-left: 30px;
+        }
+    
+        .footer a:hover {
+            text-decoration:underline;
+        }
+      

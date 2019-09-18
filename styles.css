@@ -7,7 +7,7 @@
         }
         body {
             margin: 0px;
-           background: #06D6A0;      /* #06D6A0;   VEEDE AREN*/
+            background: linear-gradient( rgb(214, 72, 6), #8725D4);
             font-family: 'Chilanka', cursive;
         /*  font-family: 'Chilanka', cursive;*/
         }
@@ -107,7 +107,7 @@
      
 
         .login {
-            background: linear-gradient( #06D6A0, #8725D4);
+            
             display : flex;
             align-items: center ; /*La ALINEACION VERTICAL*/
             justify-content: center; /*la ALINEACION DE FORMA HORIZONTAL   */
@@ -244,11 +244,11 @@
         }
 
         .footer { 
-            background-color:  #8725D4;
+          
             font-family: 'Chilanka', cursive;
             text-align: center;
             display: flex;
-            height: 60px;
+            height: 10px;
             width: 100%;
             justify-content: center;
             padding-top: 30px;
@@ -265,4 +265,19 @@
         .footer a:hover {
             text-decoration:underline;
         }
-      
+
+        @media only screen and (max-widht:600px){
+            .login__container{
+                background-color: transparent;
+                border: none;
+                padding: 0px;
+                width : 100%;
+            }
+            .footer {
+                align-items: flex-start;
+                flex-direction: column;
+
+            }
+         
+        }
+         

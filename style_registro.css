@@ -1,7 +1,7 @@
 
         body {
             margin: 0px;
-           background: #06D6A0;      /* #06D6A0;   VEEDE AREN*/
+            background: linear-gradient( rgb(214, 72, 6), #8725D4);
             font-family: 'Chilanka', cursive;
         /*  font-family: 'Chilanka', cursive;*/
         }
@@ -101,7 +101,7 @@
      
 
         .login {
-            background: linear-gradient( #06D6A0, #8725D4);
+            background: linear-gradient( rgb(214, 72, 6), #8725D4);
             display : flex;
             align-items: center ; /*La ALINEACION VERTICAL*/
             justify-content: center; /*la ALINEACION DE FORMA HORIZONTAL   */
